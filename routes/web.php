@@ -46,3 +46,4 @@ Route::get('Patient/{id}','PatientController@delete')->name('patient.delete');
 //////////// End Route Patient /////////////////////////////
 
 //sdfsdfsdfsdfsdfsdf
+////dsadadd
