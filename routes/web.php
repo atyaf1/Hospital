@@ -44,5 +44,9 @@ Route::get('Patient/edit/{id}','PatientController@edit')->name('patient.edit');
 Route::post('Patient/edit/{id}','PatientController@update')->name('patient.update');
 Route::get('Patient/{id}','PatientController@delete')->name('patient.delete');
 //////////// End Route Patient /////////////////////////////
+<<<<<<< HEAD
 
 //sssssss
+=======
+//Route::get('Patient/{id}','PatientController@delete')->name('patient.delete');
+>>>>>>> 3284b60b93483e05bab408434b04a4850395ce18
