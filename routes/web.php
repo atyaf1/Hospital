@@ -45,7 +45,12 @@ Route::post('Patient/edit/{id}','PatientController@update')->name('patient.updat
 Route::get('Patient/{id}','PatientController@delete')->name('patient.delete');
 //////////// End Route Patient /////////////////////////////
 
+<<<<<<< HEAD
 dsdsadas
 asd
 asdas
 ddsa
+=======
+//czxczxczxc
+//ssssss
+>>>>>>> af64b56457eac9d4049edb84108311b11255d394
