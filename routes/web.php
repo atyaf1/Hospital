@@ -2,10 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
- Route::get('kh',function (){
-     return 'asd';
- });
-
 Auth::routes();
 
 Route::get('logout',function (){
@@ -16,6 +12,12 @@ Route::get('logout',function (){
 
 Route::get('index',function (){
   return view('index');
+});
+
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::resource('roles', 'RoleController');
+    Route::resource('users', 'UserController');
 });
 
 
