@@ -158,7 +158,6 @@
 
         <!-- Main Content -->
         <div id="content">
-
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
@@ -363,86 +362,62 @@
             </nav>
             <!-- End of Topbar -->
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-    <!-- add doctor form -->
     <div class="container">
-        <div class="add-doctor p-5 mt-4 mb-4 rounded text-white" style="background-color: #486dda">
+        <div class="index mt-4">
             @if (Session::has('success'))
-            <div class="alert alert-success text-center" role="alert">
-                {{Session::get('success')}}
-            </div>
+                <div class="alert alert-success text-center" role="alert">
+                    {{ Session::get('success') }}
+                </div>
             @endif
-            <form action="{{ route('patient.store') }}" method="post">
-                @csrf
+            <table class="table table-striped text-center">
+                <tr style="background-color: #203647; color: #ffc107">
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Operations</th>
+                </tr>
+                <?php $i=1; ?>
+                @foreach ($patients as $patient)
+                    <tr>
+                        <td scope="col">{{$i++}}</td>
+                        <td scope="col">{{ $patient->name }}</td>
+                        <td scope="col">{{ $patient->department_id }}</td>
+                        <td scope="col">{{ $patient->description }}</td>
+                        <td scope="col">{{ $patient->age() }}</td>
+                        <td>
+                            <a href="{{ route('patient.edit', $patient->id) }}" class="btn btn-primary">Accept Request</a>
+                            <a href="{{ route('patient.delete', $patient->id) }}" class="btn btn-danger">Reject Request</a>
+                        </td>
+                    </tr>
+                @endforeach
 
-                <div class="h3 mb-3" style="color: #ffc107">Add New Request</div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Full Name</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Full Name"
-                                name="name" />
-                            @error('name')
-                                <small class="form-text text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput2">Email</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="Email"
-                                name="email" />
-                            @error('email')
-                                <small class="form-text text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput3">Birth Day</label>
-                            <input type="date" class="form-control" id="exampleFormControlInput3" placeholder="Birth Day"
-                                name="birthday" />
-                            @error('birthday')
-                                <small class="form-text text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput4">Phone Number</label>
-                            <input type="number" class="form-control" id="exampleFormControlInput4" placeholder="Phone Number"
-                                name="phone" />
-                            @error('phone')
-                                <small class="form-text text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="exampleFormControlInput5">Address</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput5" placeholder="Address"
-                                name="address" />
-                            @error('address')
-                                <small class="form-text text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect6">Select Department</label>
-                            <select class="form-control" id="exampleFormControlSelect6" name="department_id">
-                                @foreach ($departments as $dep)
-                                    <option value="{{ $dep->id }}">{{ $dep->name }}</option>
-                                @endforeach
-                            </select>
-                            @error('department_id')
-                                <small class="form-text text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect7">Add Description</label>
-                            <textarea name="description" id="exampleFormControlSelect7" cols="50" rows="6"></textarea>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="form-group d-flex justify-content-center mt-4">
-                    <button type="submit" class="btn btn-outline-warning btn-lg fs-2 px-5">Submit</button>
-                </div>
-            </form>
+            </table>
         </div>
     </div>
+
+            <!-- Bootstrap core JavaScript-->
+            <script src="{{asset('assets/vendor/jquery/jquery.min.js')}}"></script>
+            <script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+            <!-- Core plugin JavaScript-->
+            <script src="{{asset('assets/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+
+            <!-- Custom scripts for all pages-->
+            <script src="{{asset('assets/js/sb-admin-2.min.js')}}"></script>
+
+            <!-- Page level plugins -->
+            <script src="{{asset('assets/vendor/chart.js/Chart.min.js')}}"></script>
+
+            <!-- Page level custom scripts -->
+            <script src="{{asset('assets/js/demo/chart-area-demo.js')}}"></script>
+            <script src="{{asset('assets/js/demo/chart-pie-demo.js')}}"></script>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+

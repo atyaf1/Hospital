@@ -14,6 +14,11 @@ Route::get('logout',function (){
 })->name('log');
 
 
+Route::get('index',function (){
+  return view('index');
+});
+
+
 /////////////// Begin Route Doctor /////////////////////////////
 Route::get('Doctor','DoctorController@index')->name('doctor.index');
 Route::get('Doctor/create','DoctorController@create')->name('doctor.create');
@@ -36,21 +41,12 @@ Route::delete('Department/{id}','DepartmentController@delete')->name('department
 //////////// End Route Department /////////////////////////////
 
 
-/////////////// Begin Route Patient /////////////////////////////
-Route::get('Patient','PatientController@index')->name('patient.index');
+/////////////// Begin Route Patient_Request /////////////////////////////
+Route::get('Requests','PatientController@index')->name('patient.index');
 Route::get('Patient/create','PatientController@create')->name('patient.create');
 Route::post('Patient/create','PatientController@store')->name('patient.store');
-Route::get('Patient/edit/{id}','PatientController@edit')->name('patient.edit');
+Route::get('Patient/Accept_Request/{id}','PatientController@edit')->name('patient.edit');
 Route::post('Patient/edit/{id}','PatientController@update')->name('patient.update');
 Route::get('Patient/{id}','PatientController@delete')->name('patient.delete');
-//////////// End Route Patient /////////////////////////////
-<<<<<<< HEAD
+//////////// End Route Patient_Request /////////////////////////////
 
-//sssssss
-=======
-//Route::get('Patient/{id}','PatientController@delete')->name('patient.delete');
-<<<<<<< HEAD
-//Route::get('Patient/{id}','PatientController@delete')->name('patient.delete');
-=======
->>>>>>> 3284b60b93483e05bab408434b04a4850395ce18
->>>>>>> b7dda034f8518abc9c6fb9207ef2c92aa92ddab5
