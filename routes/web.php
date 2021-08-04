@@ -21,6 +21,8 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 
+
+
 /////////////// Begin Route Doctor /////////////////////////////
 Route::get('Doctor','DoctorController@index')->name('doctor.index');
 Route::get('Doctor/create','DoctorController@create')->name('doctor.create');

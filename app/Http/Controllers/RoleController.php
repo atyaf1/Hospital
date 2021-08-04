@@ -9,7 +9,10 @@ use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
+
     /*** Display a listing of the resource.** @return Response */
+
+
     function __construct()
     {
         $this->middleware('permission:role-list|role-create|role-edit|role-delete', ['only' => ['index', 'store']]);
@@ -17,6 +20,8 @@ class RoleController extends Controller
         $this->middleware('permission:role-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:role-delete', ['only' => ['destroy']]);
     }
+
+
 
     /*** Display a listing of the resource.** @return Response */
     public function index(Request $request)
