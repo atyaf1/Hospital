@@ -15,6 +15,17 @@ use App\Patient_Request;
 class PatientController extends Controller
 {
 
+
+    function __construct()
+    {
+        $this->middleware('permission:اظهار الطلبات', ['only' => ['index', 'store']]);
+        $this->middleware('permission:اضافة طلب', ['only' => ['create', 'store']]);
+        $this->middleware('permission:اظهار الطلبات', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:اظهار الطلبات', ['only' => ['destroy']]);
+    }
+
+
+
     public function index()
     {
         return view('Patient.index',[

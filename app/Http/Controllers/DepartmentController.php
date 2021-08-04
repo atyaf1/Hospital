@@ -8,6 +8,17 @@ use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
 {
+
+    function __construct()
+    {
+        $this->middleware('permission:اظهار الاقسام', ['only' => ['index', 'store']]);
+        $this->middleware('permission:اضافة قسم', ['only' => ['create', 'store']]);
+        $this->middleware('permission:اظهار الاقسام', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:اظهار الاقسام', ['only' => ['destroy']]);
+    }
+
+
+
     public function index()
     {
         $department = Department::all();

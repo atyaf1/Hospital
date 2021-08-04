@@ -13,7 +13,18 @@ use function Ramsey\Uuid\v1;
 
 class DoctorController extends Controller
 {
+
+    function __construct()
+    {
+        $this->middleware('permission:اظهار الدكاترة', ['only' => ['index', 'store']]);
+        $this->middleware('permission:اضافة دكتور', ['only' => ['create', 'store']]);
+        $this->middleware('permission:اظهار الدكاترة', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:اظهار الدكاترة', ['only' => ['destroy']]);
+    }
+
+
     use OfferTrait;
+
 
     public function index()
     {

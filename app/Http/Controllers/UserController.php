@@ -9,6 +9,17 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
+
+
+    function __construct()
+    {
+        $this->middleware('permission:اظهار المستخدمين', ['only' => ['index', 'store']]);
+        $this->middleware('permission:اضافة مستخدمين', ['only' => ['create', 'store']]);
+        $this->middleware('permission:اظهار المستخدمين', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:اظهار المستخدمين', ['only' => ['destroy']]);
+    }
+
+
     /*** Display a listing of the resource.** @return Response */
     public function index(Request $request)
     {
