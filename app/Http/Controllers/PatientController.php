@@ -27,7 +27,7 @@ class PatientController extends Controller
         $patients = Patient_Request::all();
         $departments = Department::all();
 
-        return view('PatientRequest.create', compact('patients', 'departments'));
+        return view('Patient.create', compact('patients', 'departments'));
     }
 
     public function store(Request $request)

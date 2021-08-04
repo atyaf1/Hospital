@@ -18,10 +18,6 @@ Route::get('index',function (){
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('roles', 'RoleController');
     Route::resource('users', 'UserController');
-});
-
-
-
 
 /////////////// Begin Route Doctor /////////////////////////////
 Route::get('Doctor','DoctorController@index')->name('doctor.index');
@@ -54,3 +50,4 @@ Route::post('Patient/edit/{id}','PatientController@update')->name('patient.updat
 Route::get('Patient/{id}','PatientController@delete')->name('patient.delete');
 //////////// End Route Patient_Request /////////////////////////////
 
+});
