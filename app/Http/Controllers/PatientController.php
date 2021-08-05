@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Department;
+use App\Events\send_notification;
 use App\PatientRequest;
 use App\User;
 use Illuminate\Http\Request;
@@ -66,6 +67,17 @@ class PatientController extends Controller
         ]);
 
          $decryptedPassword = decrypt(User::first()->password);
+
+
+        $data =[
+            'user_name'  => $request -> name,
+            'description' => $request -> description,
+            'birthday' =>$request -> birthday ,
+
+        ];
+
+        Notification::send(auth()->user() , new send_notification($data) );
+
 
     }
 

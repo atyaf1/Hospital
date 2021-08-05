@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Route;
+use App\Notifications\test;
 
 Auth::routes();
 
@@ -10,9 +12,11 @@ Route::get('logout',function (){
 })->name('log');
 
 
+
 Route::get('index',function (){
   return view('index');
 });
+
 
 
 Route::group(['middleware' => ['auth']], function () {

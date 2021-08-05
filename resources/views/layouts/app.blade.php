@@ -426,6 +426,23 @@
     <!-- Page level custom scripts -->
     <script src={{asset("assets/js/demo/chart-area-demo.js")}}></script>
     <script src={{asset("assets/js/demo/chart-pie-demo.js")}}></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+
+    <script>
+
+        Pusher.logToConsole = true;
+
+    var pusher = new Pusher('cb1f609f45dba1164f3e', {
+    cluster: 'ap2'
+    });
+
+    </script>
+
+    <script src="{{asset('js/pusherNotifications.js')}}"></script>
+
 </div>
 </body>
 
